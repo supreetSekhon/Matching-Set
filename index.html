@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="style.css" />
+        <title>Matching Card Game</title>
+    </head>
+    <body>
+        <div class="container mx-auto justify-items-center border-2 h-screen p-4">
+            <div class="columns-1">
+                <h1 class="text-center text-2xl">Matching Cards</h1>
+            </div>
+            <div class="grid grid-cols-4 gap-4 text-center text-white m-11">
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            01
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">A</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            02
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">B</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            03
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">C</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            04
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">D</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            05
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">E</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            06
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">F</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            07
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">A</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            08
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">B</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            09
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">C</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            10
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">D</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            11
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">E</div>
+                    </div>
+                </div>
+                <div class="flip-card h-24 border">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+                            12
+                        </div>
+                        <div class="flip-card-back flex items-center justify-center">F</div>
+                    </div>
+                </div>
+            </div><!-- Grid class ended for all the cards-->
+            <div class="flex items-center justify-center">
+                <button class="bg-teal-400 text-white p-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"  onclick="resetGame()">Reset</button>
+                <button class="bg-teal-400 text-white p-2 m-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"  onclick="startNewGame()">Start new game</button>
+            </div>
+        </div><!-- Container class ended -->
+        <script>
+            //------create an array of 12 elements ----
+            const array_six = ['A','B','C','D','E','F','A','B','C','D','E','F'];
+            let array_move = [];
+            let array_win = []; //----this array will contain the wining numbers 
+            //-------randomize the array -------
+            let array_random = array_six.sort(() => Math.random() - 0.5);
+            //------loop through all the flip-card-back elements as they are ones containting the values --
+            console.log("shuffled array::::"+array_random);
+            let i = 0;
+            document.querySelectorAll(".flip-card-back").forEach((card) => {
+                card.innerHTML = array_random[i];
+                i++;
+            }); 
+            document.querySelectorAll(".flip-card").forEach((card) => {
+                card.addEventListener("click", () => {
+                    //-----we will call the function here ------
+                    setTimeout(() => {
+                        checkMoves(card);
+                    }, 500);
+                    card.classList.toggle("flip");
+                });
+            });
+            function resetGame(){
+                document.querySelectorAll(".flip-card").forEach((card) => {
+                    if(card.classList.contains("flip")){
+                        card.classList.remove("flip");
+                    }
+                });
+                //------also shuffle the array ----
+                // let array_random = array_six.sort(() => Math.random() - 0.5);
+                // let i = 0;
+                // document.querySelectorAll(".flip-card-back").forEach((card) => {
+                //     card.innerHTML = array_random[i];
+                //     i++;
+                // }); 
+            }
+            function resetBlock(random_array){
+                document.querySelectorAll(".flip-card").forEach((card) => {
+                    if(card.classList.contains("flip")){
+                        card.classList.remove("flip");
+                    }
+                });
+                let i = 0;
+                document.querySelectorAll(".flip-card-back").forEach((card) => {
+                    card.innerHTML = random_array[i];
+                    i++;
+                }); 
+            }
+            function removeCards(move_value){
+                //---this function will remove the matching divs from the dom -----
+                document.querySelectorAll(".flip-card").forEach((card) => {
+                    var count = card.childElementCount; 
+                    // console.log("child nodes:::"+count);
+                    if(count == 1){
+                        let value = card.children[0].children[1].innerHTML;
+                        if(value === move_value){
+                            //-----we will remove the element from dom ---
+                            card.children[0].remove();
+                        }
+                    }
+                    
+                });
+            }
+            let counter_move = 0; //----we will assume that move = 1 by initial 
+            let win_counter = 0;
+            function checkMoves(flip_card){
+                let value = flip_card.children[0].children[1].innerHTML;
+                array_move.push(value);
+                counter_move++;
+                console.log(counter_move);
+                console.log(array_move);
+                console.log(`::::counter_move::::${counter_move}`);
+                if(counter_move == 2){
+                    //----its the second move ----
+                    counter_move = 0; //---we will reset the counter
+                    //-----we will check if both the elements match 
+                    if(array_move[0] === array_move[1]){
+                        //------both the elements matched----
+                        console.log('both the elements matched');
+                        //-----remove both the matching elements ----
+                        removeCards(array_move[0]);
+                        array_win.push(value);
+                        //----empty the array_move as well-----
+                        array_move = [];
+                        //------remove the matched elements from main array ----
+                        //-----reshuffle and all the values to the remaining divs ------
+                        let result = array_random.filter(element => !array_win.includes(element));
+                        console.log(`array random is ${array_random}`);
+                        resetBlock(result);
+                    }else{
+                        //---no game/moves have been won so we can reset the whole board 
+                        //----------remove the flip class and also shuffle the array again to change the position of the values -----
+                        console.log("not won reset the board");
+                        //----empty the array_move as well-----
+                        array_move = [];
+                        console.log(`array move is empty ${array_move}`);
+                        resetGame();
+                    }
+                }//--------if of two moves ended--------
+            }//-------function to check moves ended ------
+            //-------function to get randon number between two integers----
+            function getRandomIntInclusive(min, max) {
+                const minCeiled = Math.ceil(min);
+                const maxFloored = Math.floor(max);
+                return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+            }
+            function startNewGame(){
+                //--------we will add all the child nodes to the .flip-card"-----
+                array_move = [];
+                array_win = [];
+                counter_move = 0;
+                var i = 0;  
+                let array_random = array_six.sort(() => Math.random() - 0.5);
+                document.querySelectorAll(".flip-card").forEach((card) => {
+                    //-----inner html content ----
+                    //------need to assign randomize array values as well ----
+                    var content = '<div class="flip-card-inner"><div class="flip-card-front flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">'+(i+1)+'</div><div class="flip-card-back flex items-center justify-center">'+array_random[i]+'</div></div>';
+                    card.innerHTML = content;
+                    i++;
+                });
+            }
+        </script>
+    </body>
+</html>
